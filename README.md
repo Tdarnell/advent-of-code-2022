@@ -8,6 +8,7 @@ I intend to complete the challenges first in Python, and then in Julia using it 
 
 ## Challenges
 
-### Day 1: Calorie Counting
+### Day 1 through 6:
 
-I will put my thoughts here.
+I was playing catch up on these challenges, and still have days 7 - 9 to complete. These were interesting puzzles, and I particularly enjoyed the box stacking puzzle in day 5, though I am sure a much more efficient solution exists utilising regex. 
+
