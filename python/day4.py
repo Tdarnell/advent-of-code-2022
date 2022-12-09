@@ -11,7 +11,7 @@ and make a big list of the section assignments for each pair (your puzzle input)
 
 from pathlib import Path
 
-input_file = Path(__file__).parent.joinpath("inputs/day4.txt")
+input_file = Path("inputs/day4.txt")
 if not input_file.exists():
     print(
         f"Input file {input_file} does not exist, please create it in the inputs folder before running this script."
