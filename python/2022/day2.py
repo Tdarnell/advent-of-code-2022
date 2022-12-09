@@ -23,7 +23,7 @@ points = {
     "win": 6,  # Win
 }
 
-input_file = Path("inputs/day2.txt")
+input_file = Path("inputs/2022/day2.txt")
 if not input_file.exists():
     print(
         f"Input file {input_file} does not exist, please create it in the inputs folder before running this script."

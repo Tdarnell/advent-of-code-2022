@@ -17,7 +17,7 @@ Uppercase item types A through Z have priorities 27 through 52.
 
 from pathlib import Path
 
-input_file = Path("inputs/day3.txt")
+input_file = Path("inputs/2022/day3.txt")
 if not input_file.exists():
     print(
         f"Input file {input_file} does not exist, please create it in the inputs folder before running this script."

@@ -10,7 +10,7 @@ the most calories.
 
 from pathlib import Path
 
-input_file = Path("inputs/day1.txt")
+input_file = Path("inputs/2022/day1.txt")
 if not input_file.exists():
     print(
         f"Input file {input_file} does not exist, please create it in the inputs folder before running this script."
