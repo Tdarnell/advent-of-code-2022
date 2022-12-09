@@ -1,6 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
-import re
 from pathlib import Path
 import browser_cookie3
 import datetime as dt
@@ -11,13 +9,13 @@ import datetime as dt
 
 
 class PuzzleScraper:
-    def __init__(self, year, day, session_cookie):
+    def __init__(self, year, day):
         self.year = year
         self.day = day
         self.session_cookie = browser_cookie3.chrome(
-            domain_name='.adventofcode.com', 
-            cookie_file="C:\\Users\\Admin\\AppData\\Local\Google\\Chrome\\User Data\\Profile 1\\Network\\Cookies"
-            )
+            domain_name=".adventofcode.com",
+            cookie_file="C:\\Users\\Admin\\AppData\\Local\Google\\Chrome\\User Data\\Profile 1\\Network\\Cookies",
+        )
         self.puzzle_page_url = f"https://adventofcode.com/{year}/day/{day}"
         self.puzzle_input_url = f"https://adventofcode.com/{year}/day/{day}/input"
         self.puzzle_page_file = Path(f"inputs/{year}/day{day}.html")
@@ -45,24 +43,24 @@ class PuzzleScraper:
         # Return the puzzle input
         return r.text
 
-    def check_input_file_exists(self):
-        return self.puzzle_input_file.exists()
-
 
 if __name__ == "__main__":
     year = dt.datetime.now().year
     day = dt.datetime.now().day
-    scrape_html = True
     # lets also check if all the previous days have been completed
     for d in range(1, day + 1):
-        scraper = PuzzleScraper(year, d, session_cookie=None)
-        if not scraper.check_input_file_exists():
+        # use asyncio to delay the requests and avoid spamming the server
+        scraper = PuzzleScraper(year, d)
+        if not scraper.puzzle_input_file.exists():
             print(f"Input file {scraper.puzzle_input_file} does not exist.")
             # Scrape the puzzle
             puzzle_input = scraper.scrape_puzzle_input()
             print(f"Scraped puzzle input for day {d}: {puzzle_input}")
         else:
             print(f"Input file {scraper.puzzle_input_file} already exists.")
-        if scrape_html and not scraper.puzzle_page_file.exists():
-                puzzle_page = scraper.scrape_puzzle_page()
-                print(f"Scraped puzzle page for day {d}: {puzzle_page}")
+        if not scraper.puzzle_page_file.exists():
+            print(f"HTML file {scraper.puzzle_page_file} does not exist.")
+            puzzle_page = scraper.scrape_puzzle_page()
+            print(f"Scraped puzzle page for day {d}: {puzzle_page}")
+        else:
+            print(f"HTML file {scraper.puzzle_page_file} already exists.")
