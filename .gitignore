@@ -1,2 +1,4 @@
 py310
 .vscode
+.venv
+*_pycache_*

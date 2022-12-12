@@ -2,11 +2,16 @@ import requests
 from pathlib import Path
 import browser_cookie3
 import datetime as dt
+import json
 
 # This script will scrape the puzzle input from the Advent of Code website
 # and save it to a file in the inputs folder.
 # It will also save a HTML copy of the puzzle page to the inputs folder.
 
+config = json.load(open("config.json", "r"))
+
+if "cookie_file" not in config:
+    config["cookie_file"] = "C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1\\Network\\Cookies"
 
 class PuzzleScraper:
     def __init__(self, year, day):
@@ -14,7 +19,7 @@ class PuzzleScraper:
         self.day = day
         self.session_cookie = browser_cookie3.chrome(
             domain_name=".adventofcode.com",
-            cookie_file="C:\\Users\\Admin\\AppData\\Local\Google\\Chrome\\User Data\\Profile 1\\Network\\Cookies",
+            cookie_file=config["cookie_file"],
         )
         self.puzzle_page_url = f"https://adventofcode.com/{year}/day/{day}"
         self.puzzle_input_url = f"https://adventofcode.com/{year}/day/{day}/input"
