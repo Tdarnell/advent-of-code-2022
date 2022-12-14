@@ -16,3 +16,10 @@ I was playing catch up on these challenges, and still have days 7 - 9 to complet
 
 I got very stuck on this challenge, I think I was overthinking the problem and will return to it fresh. My attempted method was essentially dictionaries within dictionaries to build a filesystem. The recursive nature of this was not easy to handle! 
 
+### Day 8
+
+This one was a tough problem to wrap my head around! I had to look at hints to understand the problem, and then I was able to solve it. My initial thinking did not take into account the ability to see taller trees past the current tallest seen, even if there was a gap of smaller trees in between. 
+
+I am aware that my solution is not the most efficient, if I was allowing myself to use libraries such as numpy I would have had a much easier time of it. 
+
+I wanted to solve this challenge without using any non standard python libraries as much as far as possible, so I had to think about how to solve it without them. I think my approach of rows and columns was a good one, though I may come back to this and try to improve it using numpy.
