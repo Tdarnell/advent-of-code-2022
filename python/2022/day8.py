@@ -1,30 +1,37 @@
 import sys
-
 sys.path.insert(0, ".")
 import utils
+import math
 
 
-def loop_left(grid_row, start_col=0):
+def loop_left(grid_row, start_col=0, include_start=True):
     # This will loop through the grid from left to right, optionally from a given index
     # and return the number of trees visible
     # where the grid is a list of integers specifying the tree height
     # with 0 being the smallest and 9 being the tallest
     grid_row = grid_row.copy()
     max_seen = grid_row[start_col]
-    # Set all of the trees that are before the start_col to None
+        # Set all of the trees that are before the start_col to None
+    if not include_start:
+        grid_row[start_col] = None
     grid_row[:start_col] = [None] * start_col
     # Loop from left to right
     for i, tree in enumerate(grid_row):
         if i <= start_col:
             continue
-        if tree > max_seen:
+        if tree > max_seen or (tree == max_seen and not include_start):
+            if not include_start:
+                grid_row[i + 1:] = [None] * (len(grid_row) - i - 1)
+                break
             max_seen = tree
+        elif tree < max_seen and not include_start:
+            continue
         elif i != start_col:
             grid_row[i] = None
     return grid_row
 
 
-def loop_right(grid_row, start_col=0):
+def loop_right(grid_row, start_col=0, *args, **kwargs):
     """
     This will loop through the grid from right to left, optionally from a given index
     To do this we need to reverse the grid row and then loop from left to right
@@ -35,7 +42,7 @@ def loop_right(grid_row, start_col=0):
     if start_col != 0:
         start_col = len(grid_row) - start_col - 1
     grid_row = grid_row[::-1]
-    left_row = loop_left(grid_row, start_col=start_col)
+    left_row = loop_left(grid_row, start_col=start_col, *args, **kwargs)
     return left_row[::-1]
 
 
@@ -109,15 +116,44 @@ def get_scenic_score(rows, columns, start_col, start_row):
     """
     # get the row and column that we are starting from
     row = rows[start_row]
-    columns = columns[start_col]
-    left_row = loop_left(row, start_col=start_col)
-    right_row = loop_right(row, start_col=start_col)
-    left_col = loop_left(columns, start_col=start_row)
-    right_col = loop_right(columns, start_col=start_row)
+    column = columns[start_col]
+    arrs = []
+    # print(f"Start row: {start_row}, Start col: {start_col}, Row: {row[start_col]}, Col: {column[start_row]}")
+    if start_col < len(row) - 1:
+        left_row = loop_left(row, start_col=start_col, include_start=False)
+        arrs.append(left_row)
+    if start_col > 0 and start_col < len(row):
+        right_row = loop_right(row, start_col=start_col, include_start=False)
+        arrs.append(right_row)
+    if start_row < len(column):
+        left_col = loop_left(column, start_col=start_row, include_start=False)
+        arrs.append(left_col)
+    if start_row > 0 and start_row < len(column):
+        right_col = loop_right(column, start_col=start_row, include_start=False)
+        arrs.append(right_col)
+    # print(arrs)
     score = []
-    for arr in [left_row, right_row, left_col, right_col]:
+    for arr in arrs:
         score.append(sum(x is not None for x in arr))
-    return score[0] * score[1] * score[2] * score[3]
+    # print(f"Score for {start_row}, {start_col} is {score}")
+    return math.prod(score)
+
+def part2(rows, columns):
+    # This will return the answer to part 2
+    # For this part of the puzzle we will loop through every index in the grid and get a scenic score, then return the max
+    # and it's index
+    dimensions = (len(rows), len(columns))
+    highest_score = 0
+    for i in range(dimensions[0]):
+        for j in range(dimensions[1]):
+            score = get_scenic_score(rows, columns, i, j)
+            # print(f"Score at {i}, {j} [{rows[i][j]}] is {score}")
+            if score > highest_score:
+                highest_score = score
+                highest_index = (i, j)
+    print(f"Part 2: The highest score is {highest_score} at index {highest_index}")
+    return highest_score, highest_index
+            
 
 if __name__ == "__main__":
     visible_trees, rows, columns = part1(utils.get_input(8, 2022))
@@ -126,5 +162,12 @@ if __name__ == "__main__":
         for row in visible_trees:
             f.write("".join([str(x) if x is not None else "." for x in row]) + "\n")
     # Now we need to find the best place to build a house
-    score = get_scenic_score(rows, columns, 10, 10)
-    print(f"Part 2: The best place to build a house is at 10, 10 with a score of {score}")
+    test_rows = [
+        [3,0,3,7,3],
+        [2,5,5,1,2],
+        [6,5,3,3,2],
+        [3,3,5,4,9],
+        [3,5,3,9,0]
+    ]
+    test_columns = create_columns(test_rows)
+    part2(rows, columns)
