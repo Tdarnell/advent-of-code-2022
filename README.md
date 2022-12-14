@@ -22,4 +22,4 @@ This one was a tough problem to wrap my head around! I had to look at hints to u
 
 I am aware that my solution is not the most efficient, if I was allowing myself to use libraries such as numpy I would have had a much easier time of it. 
 
-I wanted to solve this challenge without using any non standard python libraries as much as far as possible, so I had to think about how to solve it without them. I think my approach of rows and columns was a good one, though I may come back to this and try to improve it using numpy.
+I wanted to solve this challenge without using any non standard python libraries as far as possible, so I had to think about how to solve it without them. I think my approach of rows and columns was a good one, though I may come back to this and try to improve it using numpy.
