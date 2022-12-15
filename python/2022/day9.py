@@ -26,6 +26,7 @@ sys.path.append(".")
 import utils
 import re
 import operator
+import time
 
 # My test case
 # U 1 L 3 R 5 D 2 U 5
@@ -130,13 +131,13 @@ def should_move_tail(head_pos: tuple, tail_pos: tuple):
     if any(abs(d) > 1 for d in difference):
         # if the difference is ever more than 2, raise an error
         if any(abs(d) > 2 for d in difference):
-            raise ValueError(f"The head is more than 2 spaces away from the tail, this should not be possible! Happened at position: {head_pos}, {tail_pos}")
+            raise ValueError(
+                f"The head is more than 2 spaces away from the tail, this should not be possible! Happened at position: {head_pos}, {tail_pos}"
+            )
         return True
 
 
-def move_tail(
-    instruction: tuple, previous_instruction: tuple, head_pos: tuple, tail_pos: tuple
-):
+def move_tail(instruction: tuple, head_pos: tuple, tail_pos: tuple):
     """
     This function calculates the new position of the tail, given the current instruction
     and the previous instruction applied to move the head. It returns a tuple of the new
@@ -160,61 +161,93 @@ def move_tail(
     """
     # First we need to check if the tail should move
     if not should_move_tail(head_pos, tail_pos):
-        return tail_pos
-    # If the tail should move, we need to calculate the new position
-    # Firstly we need to check if the head is currently diagonal to the tail
-    # We can do this by comparing the x and y values of the head and tail
-    # If both of these are different, then the head is diagonal to the tail
-    # If the head is diagonal to the tail, then we need to move the tail in the same direction as the head
-    # As well as the direction of the previous instruction
-    if head_pos[0] != tail_pos[0] and head_pos[1] != tail_pos[1]:
-        """
-        This will be true in examples like this:
-        
-        .....    .....    .....
-        .....    ..H..    ..H..
-        ..H.. -> ..... -> ..T..
-        .T...    .T...    .....
-        .....    .....    .....
+        return tail_pos, instruction
+    # Check if the head is diagonal to the tail
+    # if head_pos[0] != tail_pos[0] and head_pos[1] != tail_pos[1]:
+    """
+    This will be true in examples like this:
 
-        .....    .....    .....
-        .....    .....    .....
-        ..H.. -> ...H. -> ..TH.
-        .T...    .T...    .....
-        .....    .....    .....
-        
-        We need to move the tail diagonally to cach up with the head
-        So the tail pos will need to be set to the head pos - 1 or + 1 in the axis of the current instruction
-        """
-        x = head_pos[0] - instruction[0]
-        y = head_pos[1] - instruction[1]
-        tail_pos = (x, y)
-        return tail_pos
-    # if (
-    #         (
-    #             abs(instruction[0]) != abs(previous_instruction[0])
-    #             or abs(instruction[1]) != abs(previous_instruction[1])
-    #         )
-    #     ):
-        # The current instruction is moving in a different direction to the previous instruction
-        # Now we need to determine if it is a different axis or just a different direction
-        # to do this we sum the current instruction and the previous instruction and check if their abs == 2
-        # if (
-        #     abs(instruction[0]) + abs(instruction[1])
-        #     == abs(previous_instruction[0]) + abs(previous_instruction[1])
-        # ):
-        #     # The current instruction is moving in the same axis as the previous instruction
-        #     # We need to move the tail in the same direction as the head
-        #     new_tail_pos = tuple(map(operator.add, tail_pos, instruction))
-        #     return new_tail_pos
-        # # The current instruction is moving in a different axis to the previous instruction
-        # # We need to move the tail in the same direction as the head and the previous instruction
-        # sum_pos = tuple(map(operator.add, instruction, previous_instruction))
-        # new_tail_pos = tuple(map(operator.add, tail_pos, sum_pos))
-        # return new_tail_pos
-    # If the head is not diagonal to the tail, then we need to move the tail in the same direction as the head only
-    new_tail_pos = tuple(map(operator.add, tail_pos, instruction))
-    return new_tail_pos
+    .....    .....    .....
+    .....    ..H..    ..H..
+    ..H.. -> ..... -> ..T..
+    .T...    .T...    .....
+    .....    .....    .....
+
+    .....    .....    .....
+    .....    .....    .....
+    ..H.. -> ...H. -> ..TH.
+    .T...    .T...    .....
+    .....    .....    .....
+
+    We need to move the tail diagonally to cach up with the head
+    So the tail pos will need to be set to the head pos - 1 or + 1 in the axis of the current instruction
+    """
+    # Calculate the difference between the head and tail
+    diff_x = head_pos[0] - tail_pos[0]
+    diff_y = head_pos[1] - tail_pos[1]
+    # If the x difference is greater than the y difference, move the tail in 
+    # the x direction by 1 and to the y position of the head
+    # If the y difference is greater than the x difference, do the opposite
+    # If they are equal, move the tail in both directions by 1 (diagonally)
+    if abs(diff_x) > abs(diff_y):
+        x = tail_pos[0] + diff_x - int((diff_x/abs(diff_x)))
+        y = head_pos[1]
+    elif abs(diff_x) < abs(diff_y):
+        x = head_pos[0]
+        y = tail_pos[1] + diff_y - int((diff_y/abs(diff_y)))
+    else:
+        x = tail_pos[0] + diff_x - int((diff_x/abs(diff_x)))
+        y = tail_pos[1] + diff_y - int((diff_y/abs(diff_y)))
+    # 
+    # new_tail_pos = (x, y)
+    # Now get the difference between the new tail pos and the old tail pos
+    # movement = tuple(map(operator.sub, new_tail_pos, tail_pos))
+    return new_tail_pos, movement
+
+
+def terminal_visualisation(
+    head_pos: tuple,
+    knots: list,
+    tail_pos: tuple,
+    tail_start: tuple,
+    head_start: tuple,
+    visited_points: list,
+):
+    # Uses sys.stdout.write to print the grid to the terminal
+    # Uses flush to clear the buffer
+    grid_size = 0
+    min_x = min_y = 0
+    max_x = max_y = 0
+    for k in knots:
+        k_size = max(max(head_pos[0], k[0]), max(head_pos[1], k[1])) - min(
+            min(head_pos[0], k[0]), min(head_pos[1], k[1])
+        )
+        min_x = min(min_x, k[0])
+        min_y = min(min_y, k[1])
+        max_x = max(max_x, k[0])
+        max_y = max(max_y, k[1])
+        if k_size > grid_size:
+            grid_size = k_size
+    print(f"Grid size: {grid_size}")
+    grid = [["." for _ in range(grid_size)] for _ in range(grid_size)]
+    # for each knot, add it to the grid
+    # transpose the grid so that negative values are mapped to the min_x and min_y
+    # and positive values are mapped to the max_x and max_y
+    for k in knots:
+        coords = tuple(map(operator.sub, k, (min_x, min_y)))
+        grid[coords[0]][coords[1]] = "#"
+        # grid[k[0]][k[1]] = "#"
+    # Add the head and tail to the grid
+    head_pos = knots[0]
+    head_pos = tuple(map(operator.sub, head_pos, (min_x, min_y)))
+    tail_pos = knots[-1]
+    tail_pos = tuple(map(operator.sub, tail_pos, (min_x, min_y)))
+    grid[tail_pos[0]][tail_pos[1]] = "T"
+    grid[head_pos[0]][head_pos[1]] = "H"
+    print(f"Grid:")
+    sys.stdout.write("\n".join("".join(row) for row in grid))
+    sys.stdout.write("\n")
+    sys.stdout.flush()
 
 
 def part1(
@@ -243,9 +276,8 @@ def part1(
             # First we need to move the head
             head_pos = tuple(map(operator.add, head_pos, c))
             # Now we need to move the tail
-            tail_pos = move_tail(
+            tail_pos, _ = move_tail(
                 instruction=c,
-                previous_instruction=previous_component,
                 head_pos=head_pos,
                 tail_pos=tail_pos,
             )
@@ -262,6 +294,59 @@ def part1(
     return head_pos, tail_pos, tiles_visited
 
 
+def part2(
+    instructions=instructions(),
+    start_head=(0, 0),
+    start_tail=(0, 0),
+    knots=10,
+    visualise=False,
+    verbose=False,
+):
+    """
+    This function calculates the final position of the head and tail after following the instructions
+    """
+    knot_pos = [start_head]
+    # Add x - 1 knots to the list
+    knot_pos.extend([start_tail] * (knots - 1))
+    tiles_visited = [start_tail]
+    # We will need to store the previous instruction to calculate the new position of the tail
+    previous_component = (0, 0)
+    for step, instruction in enumerate(instructions):
+        # First we need to split the instruction into x and y components from the ("Direction": str, Distance: int) tuple
+        components = [direction[instruction[0]]] * instruction[1]
+        for i, c in enumerate(components):
+            # First we always need to move the head by the instruction
+            knot_pos[0] = tuple(map(operator.add, knot_pos[0], c))
+            if verbose:
+                print(f"Head has moved to {knot_pos[0]}")
+            # Next we create a for loop for the other knots
+            # For each one we will check if it should move
+            # if it should, move the knot then set the instruction to the movement of the knot
+            for knot in range(1, knots):
+                if should_move_tail(knot_pos[knot - 1], knot_pos[knot]):
+                    if verbose:
+                        print(f"Knot {knot} should move")
+                    prev_knot = knot_pos[knot - 1] # knot_pos[0] if knot == 1 else None
+                    new_knot_pos, _ = move_tail(
+                        instruction=c,
+                        head_pos=prev_knot,
+                        tail_pos=knot_pos[knot],
+                    )
+                    knot_pos[knot] = new_knot_pos
+                    # c = _c
+                    # c = tuple(map(operator.sub, knot_pos[knot], knot_pos[knot - 1]))
+                    if verbose:
+                        print(
+                            f"Knot {knot} has moved to {knot_pos[knot]}, and the instruction is now {_c}\n"
+                        )
+                else:
+                    if verbose:
+                        print(f"Knot {knot} is at {knot_pos[knot]} and should not move")
+            # Now we store the position of the final knot in the tiles visited
+            tiles_visited.append(knot_pos[-1])
+    return knot_pos[0], knot_pos, tiles_visited
+
+
 if __name__ == "__main__":
     # Run a test case on the instructions
     # print(moving_body())
@@ -275,7 +360,22 @@ if __name__ == "__main__":
             f"Maximum number of moves: {maximum}, length of instructions: {len(instr)}"
         )
         head_pos, tail_pos, unique_tiles_visited = part1(
-            instructions=instr, visualise=False, verbose=True
+            instructions=instr, visualise=False, verbose=False
         )
         print(f"Part 1: {len(set(unique_tiles_visited))} unique tiles visited")
-        print(f"Part 1: The final position of the head is {head_pos}, tail is {tail_pos}")
+        print(
+            f"Part 1: The final position of the head is {head_pos}, tail is {tail_pos}"
+        )
+        knot_1, knots, knot_10_tiles_visited = part2(
+            instructions=instr, visualise=False, verbose=False
+        )
+        print(f"Part 2: Knot 1 is at {knot_1}, Knot 10 is at {knots[-1]}, knot 10 moved {len(knot_10_tiles_visited)} tiles")
+        print(f"Part 2: {len(set(knot_10_tiles_visited))} unique tiles visited")
+        # terminal_visualisation(
+        #     head_pos=knot_1,
+        #     knots=knots,
+        #     tail_pos=knots[-1],
+        #     tail_start=(0, 0),
+        #     head_start=(0, 0),
+        #     visited_points=knot_10_tiles_visited
+        # )
