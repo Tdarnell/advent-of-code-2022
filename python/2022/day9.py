@@ -128,6 +128,9 @@ def should_move_tail(head_pos: tuple, tail_pos: tuple):
     difference = tuple(map(operator.sub, head_pos, tail_pos))
     # Check if the head is more than 1 space away from the tail in any direction
     if any(abs(d) > 1 for d in difference):
+        # if the difference is ever more than 2, raise an error
+        if any(abs(d) > 2 for d in difference):
+            raise ValueError(f"The head is more than 2 spaces away from the tail, this should not be possible! Happened at position: {head_pos}, {tail_pos}")
         return True
 
 
@@ -165,13 +168,50 @@ def move_tail(
     # If the head is diagonal to the tail, then we need to move the tail in the same direction as the head
     # As well as the direction of the previous instruction
     if head_pos[0] != tail_pos[0] and head_pos[1] != tail_pos[1]:
-        # The head is diagonal to the tail
-        # We need to move the tail in the same direction as the head
-        # And the direction of the previous instruction
-        # We can do this by adding the previous instruction to the current instruction
-        # And then adding this to the tail position
-        new_tail_pos = tuple(map(operator.add, tail_pos, previous_instruction))
-        return new_tail_pos
+        """
+        This will be true in examples like this:
+        
+        .....    .....    .....
+        .....    ..H..    ..H..
+        ..H.. -> ..... -> ..T..
+        .T...    .T...    .....
+        .....    .....    .....
+
+        .....    .....    .....
+        .....    .....    .....
+        ..H.. -> ...H. -> ..TH.
+        .T...    .T...    .....
+        .....    .....    .....
+        
+        We need to move the tail diagonally to cach up with the head
+        So the tail pos will need to be set to the head pos - 1 or + 1 in the axis of the current instruction
+        """
+        x = head_pos[0] - instruction[0]
+        y = head_pos[1] - instruction[1]
+        tail_pos = (x, y)
+        return tail_pos
+    # if (
+    #         (
+    #             abs(instruction[0]) != abs(previous_instruction[0])
+    #             or abs(instruction[1]) != abs(previous_instruction[1])
+    #         )
+    #     ):
+        # The current instruction is moving in a different direction to the previous instruction
+        # Now we need to determine if it is a different axis or just a different direction
+        # to do this we sum the current instruction and the previous instruction and check if their abs == 2
+        # if (
+        #     abs(instruction[0]) + abs(instruction[1])
+        #     == abs(previous_instruction[0]) + abs(previous_instruction[1])
+        # ):
+        #     # The current instruction is moving in the same axis as the previous instruction
+        #     # We need to move the tail in the same direction as the head
+        #     new_tail_pos = tuple(map(operator.add, tail_pos, instruction))
+        #     return new_tail_pos
+        # # The current instruction is moving in a different axis to the previous instruction
+        # # We need to move the tail in the same direction as the head and the previous instruction
+        # sum_pos = tuple(map(operator.add, instruction, previous_instruction))
+        # new_tail_pos = tuple(map(operator.add, tail_pos, sum_pos))
+        # return new_tail_pos
     # If the head is not diagonal to the tail, then we need to move the tail in the same direction as the head only
     new_tail_pos = tuple(map(operator.add, tail_pos, instruction))
     return new_tail_pos
@@ -210,9 +250,6 @@ def part1(
                 tail_pos=tail_pos,
             )
             # We need to store the previous component to calculate the new position of the tail in the next step
-            # If the currently stored previous component is 0 in the axis that we are currently moving in, then we sum
-            # the current component with the previous component
-            # otherwise we just use the current component as the previous component
             if verbose:
                 print(
                     f"Step ({step+1}/{len(instructions)}): The previous component is {previous_component}, the current component is {c}"
@@ -220,88 +257,9 @@ def part1(
                 print(
                     f"Step ({step+1}/{len(instructions)}): Head has moved to {head_pos}, tail has moved to {tail_pos}"
                 )
-            if (
-                (
-                    abs(c[0]) != abs(previous_component[0])
-                    or abs(c[1]) != abs(previous_component[1])
-                )
-                and (abs(c[0]) + abs(previous_component[0]) < 2)
-                and (abs(c[1]) + abs(previous_component[1]) < 2)
-            ):
-                # The current component or previous component did not move in the x or y axis whilst the other did
-                previous_component = tuple(map(operator.add, c, previous_component))
-            else:
-                # The current component is moving in the same axis as the previous component
-                previous_component = c
+            previous_component = c
             tiles_visited.append(tail_pos)
     return head_pos, tail_pos, tiles_visited
-
-
-def moving_tow(
-    instructions=instructions(),
-    start_head=(0, 0),
-    start_tail=(0, 0),
-    visualise=False,
-    verbose=False,
-):
-    head_pos = start_head
-    tail_pos = list(start_tail)
-    unique_tiles = set()
-    unique_tiles.add(str(tail_pos))
-    tail_tiles = [tail_pos]
-    previous_direction = ""
-    for step, ins in enumerate(instructions):
-        if verbose:
-            print(f"Step ({step+1}/{len(instructions)}): {ins}")
-        if step > 0:
-            previous_direction = instructions[step - 1][0]
-        for i, d in enumerate([direction[ins[0]]] * ins[1]):
-            # The head will move in the direction of the instruction by summing this move with the head position
-            _head_pos = (head_pos[0] + d[0], head_pos[1] + d[1])
-            if verbose:
-                print(
-                    f"Move {i+1}: {d}, head: {head_pos}, tail: {tail_pos}, previous move: {previous_move}, previous axis: {previous_axis}"
-                )
-                print(f"Head moved to {_head_pos}")
-            # The tail will only move if the head is now > 1 space away from the tail in any direction
-            difference = tuple(map(operator.sub, _head_pos, tail_pos))
-            # if any of the differences are not 0 or 1 or -1, then the head has moved more than 1 space away from the tail
-            if any(difference[i] not in [-1, 0, 1] for i in range(len(difference))):
-                if verbose:
-                    print(f"Difference between head and tail: {difference}")
-                else:
-                    # This needs removing and reworking to check col/row#
-                    # Check if the head is not in a different row or column to the tail. If it is, we need to move the tail
-                    # diagonally to keep up
-                    if head_pos[0] != tail_pos[0] and head_pos[1] != tail_pos[1]:
-                        tail_pos = (
-                            tail_pos[0] + direction[previous_direction][0],
-                            tail_pos[1] + direction[previous_direction][1],
-                        )
-                    # We now need to also move the tail in the same axis as the head move
-                    # by the number of spaces the head has moved
-                    tail_pos = [tail_pos[0] + d[0], tail_pos[1] + d[1]]
-                    unique_tiles.add(tuple(tail_pos))
-                if verbose:
-                    print(f"tail_pos: {tail_pos}")
-                    print(f"d: {d}")
-                    print(f"Tail moved to {tail_pos}")
-            head_pos = _head_pos
-            tail_tiles.append(tail_pos)
-    print(f"The tail has visited {len(tail_tiles)} non-unique tiles")
-    print(f"The tail has visited {len(set(tuple(unique_tiles)))} unique tiles")
-    if visualise:
-        visualiser(
-            head_start=start_head,
-            tail_start=start_tail,
-            head_pos=head_pos,
-            tail_pos=tail_pos,
-            visited_points=unique_tiles,
-        )
-    print(
-        f"Part 1: The final position of the moving body is {head_pos}, it's tail is at {tail_pos} and the tail has visited {len(unique_tiles)} unique tiles"
-    )
-    return head_pos, tail_pos, len(unique_tiles)
 
 
 if __name__ == "__main__":
@@ -317,6 +275,7 @@ if __name__ == "__main__":
             f"Maximum number of moves: {maximum}, length of instructions: {len(instr)}"
         )
         head_pos, tail_pos, unique_tiles_visited = part1(
-            instructions=instr, visualise=False, verbose=False
+            instructions=instr, visualise=False, verbose=True
         )
         print(f"Part 1: {len(set(unique_tiles_visited))} unique tiles visited")
+        print(f"Part 1: The final position of the head is {head_pos}, tail is {tail_pos}")
