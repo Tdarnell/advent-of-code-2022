@@ -24,12 +24,14 @@ I am aware that my solution is not the most efficient, if I was allowing myself 
 
 I wanted to solve this challenge without using any non standard python libraries as far as possible, so I had to think about how to solve it without them. I think my approach of rows and columns was a good one, though I may come back to this and try to improve it using numpy.
 
+I enjoyed creating visual representations of the solution for [part 1](outputs/2022/day8_part1_visible_trees.txt) and [part 2](outputs/2022/day8_part2_visualise.txt).
+
 ### Day 9
 
-I have solved this one, and it was a fun challenge, though I did need to resort to looking at hints. My method of simulating rope physics worked for part 1, but not for part 2. I had to look at the hints to understand the problem, and then I was able to solve it.
+I have solved this one, and it was a fun challenge, though I did need to resort to looking at hints. My method of simulating rope physics worked for part 1, but not for part 2. I had to look at the hints to understand why my approach was not calculating the correct answer for part 2, and then I was able to solve it.
 
 ### Day 10
 
 I found this challenge to be simpler than the last few days, and I was able to solve it without resorting to hints. I did end up taking advice from the subreddit to use unicode characters for the display for part 2, which made it much easier to read.
 
-I liked having a puzzle output that was a visual representation of the solution, and I think I will try to do this more in the future.
+I liked having a puzzle output that was a [visual representation](outputs/2022/day10_part2_CRT.txt) of the solution, and I think I will try to do this more in the future.
