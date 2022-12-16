@@ -32,7 +32,7 @@ class PuzzleScraper:
 
     def scrape_puzzle_page(self):
         # Make the request to the puzzle page
-        r = requests.get(self.puzzle_page_url)
+        r = requests.get(self.puzzle_page_url, cookies=self.session_cookie)
         with open(self.puzzle_page_file, "wb+") as f:
             f.write(r.content)
         return r
