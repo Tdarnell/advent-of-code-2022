@@ -26,4 +26,10 @@ I wanted to solve this challenge without using any non standard python libraries
 
 ### Day 9
 
-I think I am close to solving this one, and enjoyed thinking about the problem. 
+I have solved this one, and it was a fun challenge, though I did need to resort to looking at hints. My method of simulating rope physics worked for part 1, but not for part 2. I had to look at the hints to understand the problem, and then I was able to solve it.
+
+### Day 10
+
+I found this challenge to be simpler than the last few days, and I was able to solve it without resorting to hints. I did end up taking advice from the subreddit to use unicode characters for the display for part 2, which made it much easier to read.
+
+I liked having a puzzle output that was a visual representation of the solution, and I think I will try to do this more in the future.
