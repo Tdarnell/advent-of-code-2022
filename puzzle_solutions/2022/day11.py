@@ -63,7 +63,7 @@ def input_formatter(input_txt: str):
         }
     return monkeys
 
-def monkey_business(monkeys: dict, monkey_num: int):
+def monkey_business(monkeys: dict, monkey_num: int, verbose: bool = False, divide_by: int = 3):
     """
     This function loops through a monkeys items, applies the operation, and tests the item
     """
@@ -79,31 +79,38 @@ def monkey_business(monkeys: dict, monkey_num: int):
     # Check if "items", "operation", "test", "if_true", and "if_false" are in the monkey
     if not all([i in monkey for i in ["items", "operation", "test", "if_true", "if_false"]]):
         raise ValueError("Monkey is missing one or more of the following: items, operation, test, if_true, if_false")
-    print(f"Monkey {monkey_num} is inspecting {len(monkey['items'])} items")
-    print(f"Monkey {monkey_num} starts with {monkey['items']}")
+    if verbose:
+        print(f"Monkey {monkey_num} is inspecting {len(monkey['items'])} items")
+        print(f"Monkey {monkey_num} starts with {monkey['items']}")
     items_ = monkey["items"].copy()
     num_inspections = len(items_)
+    if num_inspections == 0:
+        return monkeys
     for item_worry in items_:
         # Apply the operation
         new_item_worry = eval_expr(monkey["operation"].replace("old", str(item_worry)))
         # After a monkey inspect an item, but before it tests your worru level
         # divide the new_item_worry by 3, and round down to the nearest integer
-        new_item_worry = int(new_item_worry // 3)
-        print(f"Monkey {monkey_num} applied the operation to {item_worry} and got {new_item_worry} (rounded down)")
+        new_item_worry = int(new_item_worry // divide_by)
+        if verbose:
+            print(f"Monkey {monkey_num} applied the operation to {item_worry} and got {new_item_worry} (rounded down)")
         # Now we need to evalue the test, these seem to always be "divisible by X"
         # so for now I will assume that is the case, if that changes in part 2, I will update this
         test_val = int(monkey["test"].split(" ")[-1])
         if new_item_worry % test_val == 0:
-            print(f"Monkey {monkey_num} tested {new_item_worry} and it was divisible by {test_val} (true) so it will throw to Monkey {monkey['if_true']}")
+            if verbose:
+                print(f"Monkey {monkey_num} tested {new_item_worry} and it was divisible by {test_val} (true) so it will throw to Monkey {monkey['if_true']}")
             # If true, throw to the monkey in "if_true"
             monkeys[int(monkey["if_true"])]["items"].append(new_item_worry)
             monkeys[monkey_num]["items"].remove(item_worry)
         else:
-            print(f"Monkey {monkey_num} tested {new_item_worry} and it was not divisible by {test_val} (false) so it will throw to Monkey {monkey['if_false']}")
+            if verbose:
+                print(f"Monkey {monkey_num} tested {new_item_worry} and it was not divisible by {test_val} (false) so it will throw to Monkey {monkey['if_false']}")
             # If false, throw to the monkey in "if_false"
             monkeys[int(monkey["if_false"])]["items"].append(new_item_worry)
             monkeys[monkey_num]["items"].remove(item_worry)
-        print(f"Monkey {monkey_num} threw {new_item_worry} to Monkey {monkey['if_true'] if new_item_worry % test_val == 0 else monkey['if_false']}")
+        if verbose:
+            print(f"Monkey {monkey_num} threw {new_item_worry} to Monkey {monkey['if_true'] if new_item_worry % test_val == 0 else monkey['if_false']}")
     monkeys[monkey_num]["num_inspections"] += num_inspections
     return monkeys
 
@@ -112,7 +119,22 @@ def get_most_active_monkeys(monkeys: dict, num: int = 2):
     # Will sort the monkeys dict by monkey["num_inspections"] and return the top num
     monkey_order = [i for i in sorted(monkeys, key=lambda x: monkeys[x]["num_inspections"], reverse=True) if monkeys[i]["num_inspections"] > 0]
     return monkey_order[:num]
-    
+
+
+def do_the_rounds(monkeys: dict, rounds: int = 20, verbose: bool = False, divide_by: int = 3):
+    for round_ in range(rounds):
+        if round_ % 100 == 0 and round_ != 0:
+            print(f"Round {round_} of {rounds}")
+        if verbose:
+            print(f"Round {round_ + 1} of {rounds}")
+        for monkey_num in monkeys.keys():
+            monkeys = monkey_business(monkeys=monkeys, monkey_num=monkey_num, verbose=verbose, divide_by=divide_by)
+        if verbose:
+            print(f"After round {rounds + 1} the monkeys have:")
+            for monkey_num in monkeys.keys():
+                print(f"Monkey {monkey_num} has {len(monkeys[monkey_num]['items'])} items")
+                print(f"Monkey {monkey_num} has {monkeys[monkey_num]['items']}")
+    return monkeys
 
     
 if __name__ == "__main__":
@@ -131,14 +153,23 @@ if __name__ == "__main__":
     with open(input_file, "r") as f:
         input_text = f.read()
         monkeys = input_formatter(input_txt=input_text)
-        for rounds in range(20):
-            print(f"Round ({rounds + 1} of 20))")
-            for monkey_num in monkeys.keys():
-                monkeys = monkey_business(monkeys, monkey_num)
-            print(f"After round {rounds + 1} the monkeys have:")
-            for monkey_num in monkeys.keys():
-                print(f"Monkey {monkey_num} has {len(monkeys[monkey_num]['items'])} items")
-                print(f"Monkey {monkey_num} has {monkeys[monkey_num]['items']}")
+        # Part 1
+        monkeys = do_the_rounds(monkeys=monkeys, rounds=20)
+        most_active = get_most_active_monkeys(monkeys)
+        monkey_business_level = 1
+        for i,m in enumerate(most_active, 1):
+            print(f"Monkey {m} was the {i} most active with {monkeys[m]['num_inspections']} inspections")
+            monkey_business_level *= monkeys[m]["num_inspections"]
+        print(f"The Monkey Business Level is {monkey_business_level}")
+        # Part 2
+        # This part is the same as part 1 but divide_by is 1 and the rounds is 10000
+        # There could be problems with bigint here! And it's a lot of iterations so
+        # the initial approach would be sloooooow and python integers are not built to handle
+        # precision like this. I'm going to need to use modulo math to get the answer
+        # which is something I will need to go away and learn! I'm going to leave this
+        # as a TODO for now. I will come back to this later.
+        monkeys = input_formatter(input_txt=input_text)
+        monkeys = do_the_rounds(monkeys=monkeys, rounds=20, divide_by=1)
         most_active = get_most_active_monkeys(monkeys)
         monkey_business_level = 1
         for i,m in enumerate(most_active, 1):
