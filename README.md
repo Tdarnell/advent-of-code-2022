@@ -6,7 +6,7 @@ This is my attempt at the [Advent of Code 2022](https://adventofcode.com/2022) c
 
 I intend to complete the challenges first in Python, and then in Julia using it as an opportunity to learn the language from the ground up. 
 
-## Challenges 2022
+## [Challenges 2022](puzzle_solutions/2022/)
 
 ### Day 1 through 6:
 
