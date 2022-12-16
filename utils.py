@@ -2,7 +2,7 @@ from pathlib import Path
 from puzzle_scraper import PuzzleScraper
 import datetime as dt
 
-def get_input(day: int, year: int = 2022):
+def get_input(day: int = 1, year: int = 2022):
     input_file = Path(f"inputs/{year}/day{day}.txt")
     if not input_file.exists():
         print(
@@ -10,18 +10,18 @@ def get_input(day: int, year: int = 2022):
         )
         try:
             # use asyncio to delay the requests and avoid spamming the server
-            scraper = PuzzleScraper(year, d)
+            scraper = PuzzleScraper(day=day, year=year)
             if not scraper.puzzle_input_file.exists():
                 print(f"Input file {scraper.puzzle_input_file} does not exist.")
                 # Scrape the puzzle
                 puzzle_input = scraper.scrape_puzzle_input()
-                print(f"Scraped puzzle input for day {d}: {puzzle_input}")
+                print(f"Scraped puzzle input for day {day}: {puzzle_input}")
             else:
                 print(f"Input file {scraper.puzzle_input_file} already exists.")
             if not scraper.puzzle_page_file.exists():
                 print(f"HTML file {scraper.puzzle_page_file} does not exist.")
                 puzzle_page = scraper.scrape_puzzle_page()
-                print(f"Scraped puzzle page for day {d}: {puzzle_page}")
+                print(f"Scraped puzzle page for day {day}: {puzzle_page}")
             else:
                 print(f"HTML file {scraper.puzzle_page_file} already exists.")
         except Exception as e:
