@@ -6,198 +6,162 @@ This challenge is a work in progress, I found it quite hard! though I think I ma
 
 import re
 import sys
+
 sys.path.insert(0, ".")
 import utils
 
-def pathwalker(filetree: {}, cwd: str = "/"):
+
+def get_dir(input_str: str = "dir d"):
     """
-    This function will walk through the filetree and return the cwd dictionary.
+    This function will take the input string and return the directory name
     """
-    if cwd == "/":
-        return filetree
-    working_tree = {}
-    split_path = list(filter(None, cwd[1:-1].split("/")))
-    # Walk the path to the current directory
-    for i in range(len(split_path)):
-        # Get the path by recursively opening dictionaries in the filetree
-        if i == 0:
-            if split_path[i] not in filetree:
-                print(f"Searched for {split_path[i]} in {filetree}")
-                raise Exception(f"Path {cwd} does not exist.")    
-            working_tree = filetree[split_path[i]]
+    # Use regex to get the directory name (everything after "dir ")
+    # By using regex, we can handle spaces in the directory name
+    return re.search(r"dir (.+)", input_str).group(1)
+
+
+def get_file(input_str: str = "2557 g"):
+    """
+    This function will take the input string and return the file name and size
+    """
+    # Use regex to get the file name and size (format is "size name")
+    # By using regex, we can handle spaces in the file name
+    groups = re.search(r"(\d+) (.+)", input_str).groups()
+    size = int(groups[0])
+    name = groups[1]
+    return name, size
+
+
+def get_command(input_str: str = "$ cd a"):
+    """
+    This function will take the input string and return the command and directory name
+    """
+    print(input_str)
+    # Use regex to get the command and directory name (format is "$ command directory")
+    # the directory name is optional
+    # By using regex, we can handle spaces in the directory name
+    groups = re.search(r"\$ (\w+) ?(.+)?", input_str).groups()
+    command = groups[0]
+    if command == "cd":
+        directory = groups[1]
+    elif command == "ls":
+        directory = None
+    return command, directory
+
+
+## This function did not get used in the end, but I have left it here for reference
+## As I think it is a good example of how to use recursion to build a tree
+def treebuilder(
+    folders: list = ["/", "/a/", "/a/b/", "/d/"],
+) -> dict:
+    """
+    This function will take a list of folders and return a dictionary of the folder tree
+    """
+    filetree = {}
+    for folder in folders:
+        # first we need to split the folders into their components
+        components = folder.split("/")
+        # remove all '' components
+        components = [component for component in components if component != ""]
+        # now for each component we need to add it to the filetree as a nested dictionary
+        # we need reverse the components so we can add the folders in the correct order
+        if len(components) < 1:
+            # root folder
+            continue
+        if len(components) == 1:
+            filetree[components[0]] = {}
+            continue
+        components.reverse()
+        _workingtree, cwd = {}, components[-1]
+        for c in components[:-1]:                
+            _workingtree = {c: _workingtree}
+        if filetree == {}:
+            filetree = _workingtree
+        elif cwd in filetree:
+            filetree[cwd].update(_workingtree)
         else:
-            if split_path[i] not in working_tree:
-                print(f"Searched for {split_path[i]} in {working_tree}")
-                raise Exception(f"Path {cwd} does not exist.")
-            working_tree = working_tree[split_path[i]]
-    return working_tree
-
-
-def savepath(filetree: {}, working_tree: {}, cwd: str = "/"):
-    """
-    This function will save the working_tree to the filetree at the cwd.
-    """
-    split_path = list(filter(None, cwd[1:-1].split("/")))
-    reversed_path = split_path.copy()
-    reversed_path.reverse()
-    # We now need to work out what the master dictionary is for the current working directory
-    # Walk the path to the current directory
-    if len(split_path) == 0:
-        filetree = working_tree
-        return filetree
-    parent_dicts = []
-    parent_path = {}
-    # print(f"Split path: {split_path}")
-    for i,path in enumerate(split_path):
-        # print(f"Working on {i}: {path}")
-        if len(split_path) == 1:
-            filetree[path] = working_tree
-            # print(f"Only one path, so filetree is now {filetree}")
-            return filetree
-        if i == 0:
-            parent_dicts.append({path: filetree[path]})
-            parent_path = filetree[path]
-            # print(f"i == 0, so parent_dicts is now {parent_dicts}")
-        elif i < len(split_path) - 1:
-            # print(f"parent_dicts[i-1][split_path[i-1]]: {parent_dicts[i-1][split_path[i-1]][split_path[i-1]]}")
-            # parent_dicts.append({path: parent_dicts[i-1][split_path[i-1]][split_path[i-1]][path]})
-            # print(f"split_path[i-1]: {split_path[i-1]}, path: {path}")
-            # parent_path = parent_dicts[i-1][split_path[i-1]][split_path[i-1]][path]
-            key, value = (path, parent_path[split_path[i-1]][path])
-            parent_key, parent_value = list(parent_dicts[i-1].items())[0]
-            print(key, value, parent_key, parent_value)
-            exit()
-            # print(f"i < len(split_path) - 1, so parent_dicts is now {parent_dicts}")
-        elif i == len(split_path) - 1:
-            parent_path = {path: working_tree}
-            parent_dicts.append(parent_path)
-            # print(f"i == len(split_path) - 1, so parent_dicts is now {parent_dicts}")
-    # print(f"Parent dicts: {parent_dicts}")
-    # Now work backwards through the parent_dicts and update the dictionaries
-    parent_dicts.reverse()
-    print(f"Parent dicts: {parent_dicts}\n\n")
-    print(f"Split path: {split_path}\n\n")
-    for i,d in enumerate(parent_dicts):
-        # print(f"Working on {i}: {d}")
-        if i < len(parent_dicts) - 1:
-            # We are in the newly listed directory, lets add it's contents to the next parent
-            key = list(d.keys())[0]
-            # update the parent with the new directory
-            # parent_dicts[i+1][split_path[i+1]][key] = d[key]
-            # Update the parent dict value with the new directory listing
-            key, value = list(d.items())[0]
-            parent_key, parent_value = list(parent_dicts[i+1].items())[0]
-            parent_dicts[i+1][parent_key].update({key: value})
-            print(key, value, parent_key, parent_value)
-            print(parent_dicts[i+1])
-            # exit()
-            # print(f"Updated {parent_dicts[i+1].keys()} with {d[key]}")
-        # elif i < len(parent_dicts) - 1:
-        #     print(parent_dicts[i])
-        #     # print(f"Updating {parent_dicts[i-1]} with {parent_dicts[i]}")
-        #     parent_dicts[i+1] = {**parent_dicts[i+1], **parent_dicts[i]}
-        elif i == len(parent_dicts) - 1:
-            # print(parent_dicts[i])
-            # We should be back at the root, so lets update the filetree
-            # print(f"Updating {filetree} with {parent_dicts[i]} at {split_path[0]}")
-            filetree.update({split_path[0]: parent_dicts[i]})
-    # print(f"Filetree: {filetree}")
+            filetree[cwd] = _workingtree
     return filetree
-    # for i,p in enumerate(reversed_path):
-    #         if i == 0:
-    #             # This is our working tree, so we can skip it for step 1
-    #             parent_path[p] = working_tree
-    #             continue
-    #         else:
-                
-            # Recursively walk the path to the current directory and save changes to the filetree
-            # parent_path_ = pathwalker(filetree, cwd="/" + "/".join(split_path) + "/")
-            # parent_path = {p: parent_path, **pathwalker(filetree, cwd="/" + "/".join(split_path[:len(reversed_path)-i]) + "/")}
-            # print(f"Parent path: {parent_path}\nFiletree: {filetree}\nCWD: {cwd}\nSplit path: {split_path}\np: {p}\n")
-            # Update the parent path with the new working tree
-            # parent_path = {p: pathwalker(filetree, cwd="/" + "/".join(split_path) + "/")}
-            # parent_path = {**parent_path_, **parent_path}
-            # print(parent_path)
-    # filetree.update(parent_path)
-    # print(f"Filetree: {filetree}\nCWD: {cwd}\nSplit path: {split_path}\n")
-    # return filetree
 
-
-# Part 1
-def part1(input_file = utils.get_input(7, 2022)):
+def pathmapper(
+    input_txt: str = "$ cd /\n$ ls\ndir a\n14848514 b.txt\n8504156 c.dat\ndir d\n$ cd a\n$ ls\ndir e\n29116 f\n"
+    "2557 g\n62596 h.lst\n$ cd e\n$ ls\n584 i\n$ cd ..\n$ cd ..\n$ cd d\n$ ls\n4060174 j\n8033020 d.log\n"
+    "5626152 d.ext\n7214296 k\n",
+):
     """
-
-    Parameters
-    ----------
-    input_file : Path, optional
-        The path to the input file, by default input_file
+    This function will take the input text and return a dictionary of the paths
     """
-    # Open the input file
-    with open(input_file, "r") as f:
-        # Read the input file
-        input_data = f.read()
-        filetree = {}
-        working_tree = {}
-        summed_tree = 0
-        # Now we read the input file line by line
-        # Lines starting with $ are commands, either cd to change directory or ls to list files
-        # Lines starting with dir are directories
-        # Lines starting with numbers are files, the number being their size
-        cwd = "/"
-        split_lines = input_data.splitlines()
-        # Break this into blocks, using lines "$ ls" as the start of a new block and any "$" lines as the end of a block
-        blocks = [list(filter(None, a.splitlines())) for a in re.split(r"\$ ", input_data) if a != ""]
-        # blocknames = ['']
-        # blocknames.extend([re.findall(r"\$ cd (.*)", b[-1])[0] for b in blocks[:-1]])
-        # print(blocknames)
-        # Each one of these blocks will contain a list of files and directories in the current directory
-        # The end of each block will be a "$ cd" command, which will change the current working directory
-        # print(blocks)
-        # We are only interested in blocks where the total file size is < 100000, so can ignore the rest
-        for i,b in enumerate(blocks):
-            if i > 10:
-                print(f"Breaking at {i}")
-                print(f"\n\nFiletree:\n\n{filetree}")
-                break
-            if i != 0:
-                # Find all items which start with a number and sum them
-                files = {f.split(" ")[1]: int(f.split(" ")[0]) for f in b if f[0].isdigit()}
-                # We need to add the size of the directories to the total
-                dirs = {f.split(" ")[1]: {} for f in b if f[0] == "d"}
-                # Check that files and dirs are not empty
-                if len(files) > 0 or len(dirs) > 0:    
-                    # combine the files and directories into a single dictionary
-                    working_tree = {**files, **dirs}
-                    filetree.update(savepath(filetree, working_tree, cwd))
-                    # Now we need to find the cd command at the end of the block to find the next working directory
-            for step in re.findall(r"cd (.*)", b[0]):
-                if step.split()[0] == "..":
-                    print(f"Step is {i} {step}, moving up a directory to {cwd[:cwd[:-1].rfind('/')+1]}")
-                    cwd = cwd[:cwd[:-1].rfind("/")+1]
-                elif step == "/":
-                    print(f"Step is {i} {step}, moving to root directory")
-                    cwd = "/"
+    input_txt = input_txt.strip().splitlines()
+    foldersizes = {}
+    paths = []
+    parent, contents = "/", []
+    for i, line in enumerate(input_txt):
+        # check what operation we are doing on the line
+        if "$" in line:
+            # This is a command
+            command, _directory = get_command(line)
+            if command == "cd":
+                if len(contents) > 0:
+                    # we need to add the contents to the foldersizes
+                    paths.append(parent)
+                    foldersizes[parent] = contents
+                    contents = []
+                if _directory == "/":
+                    parent = "/"
+                elif _directory == "..":
+                    parent = "/".join(parent.split("/")[:-2]) + "/"
                 else:
-                    print(f"Step is {i} {step}, moving to {cwd + step + '/'}")
-                    cwd += step + "/"
-        # print(f"Block {i} is {blocknames[i]} and the cwd is {cwd}.\nFiletree is {filetree}")
-        # print(filetree)
-        #    Now we need to look at the previous cd command to find the current working directory
-        #     cwd = re.findall(r"\$ cd (.*)", blocks[i-1][-1])[0]
-        #     if cwd in filetree:
-        #         filetree[cwd] += block_size
-        #     else:
-        #         filetree[cwd] = block_size
-        #     if block_size < 100000:
-        #         summed_tree += block_size
-        # # print(filetree)
-        # # Filter the filetree to only include directories with a size < 100000
-        # filtered_tree = {k:v for k,v in filetree.items() if v < 100000}
-        # print(filtered_tree)
-        # summed_tree = sum(filtered_tree.values())
-        # print(f"Part 1: The sum total of folders sizes <100000 are {summed_tree}")
-        
+                    parent = parent + _directory + "/"
+        elif "dir " in line:
+            # This is a directory
+            _directory = get_dir(line)
+            contents.append(parent + _directory + "/")
+        else:
+            # This is a file with a file size
+            _file, _size = get_file(line)
+            contents.append(_size)
+    paths.append(parent)
+    foldersizes[parent] = contents
+    for path in paths:
+        # now we are going to replace any strings in each foldersize with the contents of that folder
+        # we do this in a while loop so we can handle nested folders
+        strings = [content for content in foldersizes[path] if isinstance(content, str)]
+        while len(strings) > 0:
+            for string in strings:
+                # get the contents of the string folder and put it in the foldersizes, remove the string
+                foldersizes[path].remove(string)
+                foldersizes[path].extend(foldersizes[string])
+            strings = [content for content in foldersizes[path] if isinstance(content, str)]
+    # Now we sum the sizes of each folder and replace the list with the sum
+    for path, contents in foldersizes.items():
+        foldersizes[path] = sum(contents)
+    # now we are going to replace any strings in each foldersize with the contents of that folder
+    return foldersizes
+
+
 if __name__ == "__main__":
     input_file = utils.get_input(7, 2022)
-    part1(input_file=input_file)
-    
+    with open(input_file, "r") as f:
+        input_txt = f.read()
+        # part 1
+        foldersizes = pathmapper(input_txt=input_txt)
+        print(f"There are {len(foldersizes)} folders")
+        print(f"The largest folder is {max(foldersizes.values())} bytes, it is in {max(foldersizes, key=foldersizes.get)}")
+        # Find all of the directories with a total size of at most 100000
+        smallfolders = [folder for folder, size in foldersizes.items() if size <= 100000]
+        # sum their sizes
+        sizes = sum([foldersizes[folder] for folder in smallfolders])
+        print(f"There are {len(smallfolders)} folders with a total size of {sizes} bytes")
+        # part 2
+        # total disk space = 70000000
+        # needed space = 30000000
+        # total used space = "/" size in the foldersizes, 50822529 in our case
+        freespace = 70000000 - max(foldersizes.values())
+        # Find the smallest directory that, if deleted, would free up enough space
+        neededsize = 30000000 - freespace
+        # filter the foldersizes to only include folders that are greater than the needed size
+        options = [folder for folder, size in foldersizes.items() if size >= neededsize]
+        # sort by size and select the smallest
+        options.sort(key=lambda x: foldersizes[x])
+        smallest = options[0]
+        print(f"The smallest folder that, if deleted, would free up enough space is {smallest} with a size of {foldersizes[smallest]} bytes")
