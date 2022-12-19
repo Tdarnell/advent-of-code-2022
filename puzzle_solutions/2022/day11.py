@@ -7,6 +7,7 @@ import re
 # as python built-in eval() is not a good idea!
 import ast
 import operator as op
+import math
 
 # supported operators
 operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul,
@@ -49,7 +50,7 @@ def input_formatter(input_txt: str):
         # split the items into a list
         monkey_items = [int(i) for i in monkey_items.split(", ")]
         operation = re.search(r"Operation: new = (.+)\n", monkey).group(1)
-        test = re.search(r"Test: (.+)\n", monkey).group(1)
+        test = re.search(r"Test: divisible by (.+)\n", monkey).group(1)
         if_true = re.search(r"If true: throw to monkey (\d+)", monkey).group(1)
         if_false = re.search(r"If false: throw to monkey (\d+)", monkey).group(1)
         monkeys[monkey_num] = {
@@ -84,6 +85,13 @@ def monkey_business(monkeys: dict, monkey_num: int, verbose: bool = False, divid
         print(f"Monkey {monkey_num} starts with {monkey['items']}")
     items_ = monkey["items"].copy()
     num_inspections = len(items_)
+    commmon_modulo = 0
+    if divide_by == 0:
+        tests = [int(i["test"]) for i in monkeys.values()]
+        # calculate the product of all the tests
+        commmon_modulo = math.prod(tests)
+        if verbose:
+            print(f"Common modulo: {commmon_modulo}")
     if num_inspections == 0:
         return monkeys
     for item_worry in items_:
@@ -91,12 +99,16 @@ def monkey_business(monkeys: dict, monkey_num: int, verbose: bool = False, divid
         new_item_worry = eval_expr(monkey["operation"].replace("old", str(item_worry)))
         # After a monkey inspect an item, but before it tests your worru level
         # divide the new_item_worry by 3, and round down to the nearest integer
-        new_item_worry = int(new_item_worry // divide_by)
+        if divide_by != 0:
+            new_item_worry = int(new_item_worry // divide_by)
+        else:
+            new_item_worry = new_item_worry % commmon_modulo
+            # print(new_item_worry)
         if verbose:
             print(f"Monkey {monkey_num} applied the operation to {item_worry} and got {new_item_worry} (rounded down)")
         # Now we need to evalue the test, these seem to always be "divisible by X"
         # so for now I will assume that is the case, if that changes in part 2, I will update this
-        test_val = int(monkey["test"].split(" ")[-1])
+        test_val = int(monkey["test"])
         if new_item_worry % test_val == 0:
             if verbose:
                 print(f"Monkey {monkey_num} tested {new_item_worry} and it was divisible by {test_val} (true) so it will throw to Monkey {monkey['if_true']}")
@@ -169,7 +181,7 @@ if __name__ == "__main__":
         # which is something I will need to go away and learn! I'm going to leave this
         # as a TODO for now. I will come back to this later.
         monkeys = input_formatter(input_txt=input_text)
-        monkeys = do_the_rounds(monkeys=monkeys, rounds=20, divide_by=1)
+        monkeys = do_the_rounds(monkeys=monkeys, rounds=10000, divide_by=0)
         most_active = get_most_active_monkeys(monkeys)
         monkey_business_level = 1
         for i,m in enumerate(most_active, 1):
