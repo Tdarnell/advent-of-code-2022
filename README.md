@@ -17,6 +17,8 @@ I was playing catch up on these challenges, and still have days 7 - 9 to complet
 
 I got very stuck on this challenge, I think I was overthinking the problem and will return to it fresh. My attempted method was essentially dictionaries within dictionaries to build a filesystem. The recursive nature of this was not easy to handle! 
 
+19/12/2022 - I restarted the puzzle from scratch and I am very happy with my solution. I used a loop to build the filesystem, and then a while loop to replace the sizes of all subdirectories with the sum of their subdirectories. After part 1 was solved part 2 was nice and simple. 
+
 ### Day 8
 
 This one was a tough problem to wrap my head around! I had to look at hints to understand the problem, and then I was able to solve it. My initial thinking did not take into account the ability to see taller trees past the current tallest seen, even if there was a gap of smaller trees in between. 
@@ -36,3 +38,7 @@ I have solved this one, and it was a fun challenge, though I did need to resort 
 I found this challenge to be simpler than the last few days, and I was able to solve it without resorting to hints. I did end up taking advice from the subreddit to use unicode characters for the display for part 2, which made it much easier to read.
 
 I liked having a puzzle output that was a [visual representation](outputs/2022/day10_part2_CRT.txt) of the solution, and I think I will try to do this more in the future.
+
+### Day 11
+
+I liked this challenge as I needed to go away and learn something new! I found part 1 to be fairly simple but did not initially know how to approach part 2. After doing some research into managing integer overflow I discovered modulo arithmetic and was able to solve the problem. I enjoyed learning about this new concept and I think I will use it more in the future. [Terminal output with timers](outputs/2022/day11_terminal_output.txt).
