@@ -2,7 +2,7 @@ import sys
 sys.path.append(".")
 import utils
 import re
-
+import time
 # Using functions from https://stackoverflow.com/a/9558001 to evaluate mathmatical expressions
 # as python built-in eval() is not a good idea!
 import ast
@@ -134,11 +134,8 @@ def get_most_active_monkeys(monkeys: dict, num: int = 2):
 
 
 def do_the_rounds(monkeys: dict, rounds: int = 20, verbose: bool = False, divide_by: int = 3):
+    start_time = time.time()
     for round_ in range(rounds):
-        if round_ % 100 == 0 and round_ != 0:
-            print(f"Round {round_} of {rounds}")
-        if verbose:
-            print(f"Round {round_ + 1} of {rounds}")
         for monkey_num in monkeys.keys():
             monkeys = monkey_business(monkeys=monkeys, monkey_num=monkey_num, verbose=verbose, divide_by=divide_by)
         if verbose:
@@ -146,6 +143,9 @@ def do_the_rounds(monkeys: dict, rounds: int = 20, verbose: bool = False, divide
             for monkey_num in monkeys.keys():
                 print(f"Monkey {monkey_num} has {len(monkeys[monkey_num]['items'])} items")
                 print(f"Monkey {monkey_num} has {monkeys[monkey_num]['items']}")
+        if (round_ % 500 == 0 and round_ != 0) or verbose:
+            print(f"Round {round_} of {rounds} took {time.time() - start_time:.9f} seconds")
+            start_time = time.time()
     return monkeys
 
     
@@ -164,6 +164,7 @@ if __name__ == "__main__":
     input_file = utils.get_input(day=11, year=2022)
     with open(input_file, "r") as f:
         input_text = f.read()
+        start_time = time.time()
         monkeys = input_formatter(input_txt=input_text)
         # Part 1
         monkeys = do_the_rounds(monkeys=monkeys, rounds=20)
@@ -173,6 +174,7 @@ if __name__ == "__main__":
             print(f"Monkey {m} was the {i} most active with {monkeys[m]['num_inspections']} inspections")
             monkey_business_level *= monkeys[m]["num_inspections"]
         print(f"The Monkey Business Level is {monkey_business_level}")
+        print(f"Part 1 took {(time.time() - start_time):.2f} seconds")
         # Part 2
         # This part is the same as part 1 but divide_by is 1 and the rounds is 10000
         # There could be problems with bigint here! And it's a lot of iterations so
@@ -180,6 +182,7 @@ if __name__ == "__main__":
         # precision like this. I'm going to need to use modulo math to get the answer
         # which is something I will need to go away and learn! I'm going to leave this
         # as a TODO for now. I will come back to this later.
+        start_time = time.time()
         monkeys = input_formatter(input_txt=input_text)
         monkeys = do_the_rounds(monkeys=monkeys, rounds=10000, divide_by=0)
         most_active = get_most_active_monkeys(monkeys)
@@ -188,3 +191,4 @@ if __name__ == "__main__":
             print(f"Monkey {m} was the {i} most active with {monkeys[m]['num_inspections']} inspections")
             monkey_business_level *= monkeys[m]["num_inspections"]
         print(f"The Monkey Business Level is {monkey_business_level}")
+        print(f"Part 2 took {(time.time() - start_time):.2f} seconds")

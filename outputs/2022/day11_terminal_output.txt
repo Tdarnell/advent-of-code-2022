@@ -1,0 +1,27 @@
+Monkey 0 was the 1 most active with 228 inspections
+Monkey 7 was the 2 most active with 222 inspections
+The Monkey Business Level is 50616
+Part 1 took 0.01 seconds
+Round 500 of 10000 took 0.224036455 seconds
+Round 1000 of 10000 took 0.218998671 seconds
+Round 1500 of 10000 took 0.213000059 seconds
+Round 2000 of 10000 took 0.216037273 seconds
+Round 2500 of 10000 took 0.215962648 seconds
+Round 3000 of 10000 took 0.213002205 seconds
+Round 3500 of 10000 took 0.218034983 seconds
+Round 4000 of 10000 took 0.212962866 seconds
+Round 4500 of 10000 took 0.224003077 seconds
+Round 5000 of 10000 took 0.214001417 seconds
+Round 5500 of 10000 took 0.219998598 seconds
+Round 6000 of 10000 took 0.215032578 seconds
+Round 6500 of 10000 took 0.212039709 seconds
+Round 7000 of 10000 took 0.213995457 seconds
+Round 7500 of 10000 took 0.211999893 seconds
+Round 8000 of 10000 took 0.214034081 seconds
+Round 8500 of 10000 took 0.218966246 seconds
+Round 9000 of 10000 took 0.218034983 seconds
+Round 9500 of 10000 took 0.217999935 seconds
+Monkey 0 was the 1 most active with 106346 inspections
+Monkey 4 was the 2 most active with 106342 inspections
+The Monkey Business Level is 11309046332
+Part 2 took 4.34 seconds
