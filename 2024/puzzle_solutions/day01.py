@@ -20,78 +20,14 @@
 #
 import logging
 from pathlib import Path
-import time
 from typing import Generator
+from common_utils import log_execution_time, set_up_logger, read_day_input
 
-LOGGER = logging.getLogger(__name__)
-LOGGER.setLevel(logging.INFO)
-# Create a file handler
-file_handler = logging.FileHandler(f"logs/{Path(__file__).stem}.log")
-file_handler.setLevel(logging.INFO)
-stream_handler = logging.StreamHandler()
-stream_handler.setLevel(logging.DEBUG)
-# Create a logging format
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-file_handler.setFormatter(formatter)
-stream_handler.setFormatter(formatter)
-# Add the handlers to the logger
-LOGGER.addHandler(file_handler)
-LOGGER.addHandler(stream_handler)
+LOGGER: logging.Logger = set_up_logger(day=int(Path(__file__).stem[3:]))
 
 
-def read_input(input_file: Path = Path(f"inputs/{Path(__file__).stem}.txt")) -> str:
-    """
-    Read the input file and return the contents as a string.
-
-    Parameters
-    ----------
-    input_file : Path
-        The path to the input file.
-
-    Returns
-    -------
-    str
-        The contents of the input file as a string, this is not split into lines.
-    """
-    if not isinstance(input_file, Path):
-        raise AttributeError(
-            "Expected an input_file of type Path, got type ", type(input_file)
-        )
-    if not input_file.exists():
-        raise FileNotFoundError(f"Input file {input_file} not found.")
-    with open(input_file, "r") as f:
-        return f.read().strip()
-
-
-def log_execution_time(func):
-    """
-    Decorator that logs the execution time of a function.
-
-    Parameters
-    ----------
-    func : callable
-        The function to wrap.
-
-    Returns
-    -------
-    callable
-        The wrapped function.
-    """
-
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        LOGGER.info(
-            f"Function {func.__name__} executed in {end_time - start_time:.4f} seconds"
-        )
-        return result
-
-    return wrapper
-
-
-@log_execution_time
-def part1(
+@log_execution_time(logger=LOGGER)
+def day01_part1(
     input_str: str = "3   4\n4   3\n2   5\n1   3\n3   9\n3   3",
 ) -> int:
     """
@@ -118,8 +54,8 @@ def part1(
     return diff
 
 
-@log_execution_time
-def part2(
+@log_execution_time(logger=LOGGER)
+def day01_part2(
     input_str: str = "3   4\n4   3\n2   5\n1   3\n3   9\n3   3",
 ) -> int:
     """
@@ -148,21 +84,21 @@ def part2(
 
 
 if __name__ == "__main__":
-    expected_solution: int = part1()
+    expected_solution: int = day01_part1()
     if expected_solution != 11:
         LOGGER.error(
             f"Problem with solution to part 1! Did not get the expected answer of 11 for the provided worked example. Instead got: {expected_solution}"
         )
 
-    input_str = read_input()
-    part1_solution: int = part1(input_str)
+    input_str = read_day_input(day=1)
+    part1_solution: int = day01_part1(input_str)
     LOGGER.info(f"Part 1 solution: {part1_solution}")
 
-    expected_solution = part2()
+    expected_solution = day01_part2()
     if expected_solution != 31:
         LOGGER.error(
             f"Problem with solution to part 2! Did not get the expected answer of 31 for the provided worked example. Instead got: {expected_solution}"
         )
 
-    part2_solution: int = part2(input_str)
+    part2_solution: int = day01_part2(input_str)
     LOGGER.info(f"Part 2 solution: {part2_solution}")
