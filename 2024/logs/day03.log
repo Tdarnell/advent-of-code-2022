@@ -1,0 +1,35 @@
+2024-12-06 00:16:24,775 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:16:24,775 - day03 - ERROR - Problem with solution to part 1! Did not get the expected answer of 2 for the provided worked example. Instead got: 0
+2024-12-06 00:20:35,543 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:20:35,543 - day03 - ERROR - Problem with solution to part 1! Did not get the expected answer of 161 for the provided worked example. Instead got: 73
+2024-12-06 00:21:28,326 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:21:28,326 - day03 - ERROR - Problem with solution to part 1! Did not get the expected answer of 161 for the provided worked example. Instead got: 73
+2024-12-06 00:21:54,614 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:22:35,621 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:22:35,702 - day03 - INFO - Function day03_part1 executed in 0.0810 seconds
+2024-12-06 00:22:35,702 - day03 - INFO - Part 1 solution: 183788984
+2024-12-06 00:30:05,775 - day03 - INFO - Function day03_part1 executed in 0.0125 seconds
+2024-12-06 00:30:05,862 - day03 - INFO - Function day03_part1 executed in 0.0874 seconds
+2024-12-06 00:30:05,862 - day03 - INFO - Part 1 solution: 183788984
+2024-12-06 00:30:05,863 - day03 - INFO - Function day03_part2 executed in 0.0010 seconds
+2024-12-06 00:30:05,863 - day03 - ERROR - Problem with solution to part 2! Did not get the expected answer of 48 for the provided worked example. Instead got: 40
+2024-12-06 00:30:05,895 - day03 - INFO - Function day03_part2 executed in 0.0316 seconds
+2024-12-06 00:30:05,895 - day03 - INFO - Part 2 solution: 59162863
+2024-12-06 00:30:18,343 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:30:18,343 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:30:18,343 - day03 - INFO - Part 1 solution: 183788984
+2024-12-06 00:30:18,343 - day03 - INFO - Function day03_part2 executed in 0.0000 seconds
+2024-12-06 00:30:18,343 - day03 - ERROR - Problem with solution to part 2! Did not get the expected answer of 48 for the provided worked example. Instead got: 40
+2024-12-06 00:30:18,343 - day03 - INFO - Function day03_part2 executed in 0.0000 seconds
+2024-12-06 00:30:18,343 - day03 - INFO - Part 2 solution: 59162863
+2024-12-06 00:30:41,833 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:30:41,833 - day03 - INFO - Function day03_part2 executed in 0.0000 seconds
+2024-12-06 00:30:41,833 - day03 - ERROR - Problem with solution to part 2! Did not get the expected answer of 48 for the provided worked example. Instead got: 40
+2024-12-06 00:31:45,526 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:31:45,526 - day03 - INFO - Function day03_part2 executed in 0.0000 seconds
+2024-12-06 00:31:59,448 - day03 - INFO - Function day03_part1 executed in 0.0000 seconds
+2024-12-06 00:31:59,463 - day03 - INFO - Function day03_part1 executed in 0.0005 seconds
+2024-12-06 00:31:59,464 - day03 - INFO - Part 1 solution: 183788984
+2024-12-06 00:31:59,464 - day03 - INFO - Function day03_part2 executed in 0.0000 seconds
+2024-12-06 00:31:59,465 - day03 - INFO - Function day03_part2 executed in 0.0010 seconds
+2024-12-06 00:31:59,465 - day03 - INFO - Part 2 solution: 62098619
