@@ -1,0 +1,432 @@
+2024-12-09 14:52:54,755 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 14:54:19,273 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 46
+2024-12-09 14:55:08,679 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 378
+2024-12-09 14:55:46,898 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 14:56:05,382 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 14:57:14,002 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 15:07:06,633 - day04 - INFO - Part 1 solution: 2563
+2024-12-09 15:08:22,394 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:11:09,790 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:11:28,355 - day04 - INFO - Function day04_part1 executed in 0.0085 seconds
+2024-12-09 15:11:28,894 - day04 - INFO - Function day04_part1 executed in 0.5389 seconds
+2024-12-09 15:11:28,894 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:12:35,904 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 15:12:36,444 - day04 - INFO - Function day04_part1 executed in 0.5396 seconds
+2024-12-09 15:12:36,444 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:13:09,072 - day04 - INFO - Function day04_part1 executed in 0.0007 seconds
+2024-12-09 15:13:09,162 - day04 - INFO - Function day04_part1 executed in 0.0899 seconds
+2024-12-09 15:13:09,162 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:18:43,896 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 15:18:43,987 - day04 - INFO - Function day04_part1 executed in 0.0913 seconds
+2024-12-09 15:18:43,987 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:39:57,653 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 15:39:57,744 - day04 - INFO - Function day04_part1 executed in 0.0908 seconds
+2024-12-09 15:39:57,744 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:40:34,201 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 15:40:34,289 - day04 - INFO - Function day04_part1 executed in 0.0883 seconds
+2024-12-09 15:40:34,290 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:41:10,613 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 15:41:10,714 - day04 - INFO - Function day04_part1 executed in 0.1010 seconds
+2024-12-09 15:41:10,714 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:41:10,714 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 15:41:10,714 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 15:41:10,780 - day04 - INFO - Function day04_part2 executed in 0.0656 seconds
+2024-12-09 15:41:10,780 - day04 - INFO - Part 2 solution: 0
+2024-12-09 15:56:41,671 - day04 - INFO - Function day04_part1 executed in 0.0019 seconds
+2024-12-09 15:56:41,767 - day04 - INFO - Function day04_part1 executed in 0.0964 seconds
+2024-12-09 15:56:41,767 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:56:41,769 - day04 - INFO - Function day04_part2 executed in 0.0010 seconds
+2024-12-09 15:56:41,770 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 7
+2024-12-09 15:56:41,834 - day04 - INFO - Function day04_part2 executed in 0.0638 seconds
+2024-12-09 15:56:41,834 - day04 - INFO - Part 2 solution: 1640
+2024-12-09 15:57:07,770 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 15:57:07,865 - day04 - INFO - Function day04_part1 executed in 0.0952 seconds
+2024-12-09 15:57:07,866 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 15:57:07,866 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 15:57:07,866 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 15:57:07,916 - day04 - INFO - Function day04_part2 executed in 0.0505 seconds
+2024-12-09 15:57:07,916 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:13:27,257 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:13:27,340 - day04 - INFO - Function day04_part1 executed in 0.0827 seconds
+2024-12-09 16:13:27,340 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:13:39,222 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:13:39,308 - day04 - INFO - Function day04_part1 executed in 0.0860 seconds
+2024-12-09 16:13:39,308 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:13:56,126 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:13:56,213 - day04 - INFO - Function day04_part1 executed in 0.0871 seconds
+2024-12-09 16:13:56,213 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:13:56,213 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:13:56,213 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 16:13:56,273 - day04 - INFO - Function day04_part2 executed in 0.0546 seconds
+2024-12-09 16:13:56,273 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:14:14,774 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:14:14,858 - day04 - INFO - Function day04_part1 executed in 0.0837 seconds
+2024-12-09 16:14:14,858 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:14:14,862 - day04 - INFO - Function day04_part2 executed in 0.0035 seconds
+2024-12-09 16:14:14,862 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 16:14:14,918 - day04 - INFO - Function day04_part2 executed in 0.0560 seconds
+2024-12-09 16:14:14,918 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:14:48,519 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:14:48,627 - day04 - INFO - Function day04_part1 executed in 0.1073 seconds
+2024-12-09 16:14:48,627 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:14:48,635 - day04 - INFO - Function day04_part2 executed in 0.0080 seconds
+2024-12-09 16:14:48,635 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 16:14:48,688 - day04 - INFO - Function day04_part2 executed in 0.0525 seconds
+2024-12-09 16:14:48,688 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:15:43,077 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:15:43,160 - day04 - INFO - Function day04_part1 executed in 0.0833 seconds
+2024-12-09 16:15:43,167 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:15:43,167 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:15:43,167 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 16:15:43,220 - day04 - INFO - Function day04_part2 executed in 0.0527 seconds
+2024-12-09 16:15:43,220 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:15:59,203 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:15:59,286 - day04 - INFO - Function day04_part1 executed in 0.0830 seconds
+2024-12-09 16:15:59,286 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:18:49,265 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:18:49,351 - day04 - INFO - Function day04_part1 executed in 0.0865 seconds
+2024-12-09 16:18:49,351 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:18:49,351 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:18:49,351 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 16:18:49,413 - day04 - INFO - Function day04_part2 executed in 0.0617 seconds
+2024-12-09 16:18:49,413 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:18:58,496 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:18:58,584 - day04 - INFO - Function day04_part1 executed in 0.0880 seconds
+2024-12-09 16:18:58,584 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:18:58,592 - day04 - INFO - Function day04_part2 executed in 0.0080 seconds
+2024-12-09 16:18:58,592 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 25
+2024-12-09 16:18:58,650 - day04 - INFO - Function day04_part2 executed in 0.0575 seconds
+2024-12-09 16:18:58,650 - day04 - INFO - Part 2 solution: 5390
+2024-12-09 16:23:07,475 - day04 - INFO - Function day04_part1 executed in 0.0011 seconds
+2024-12-09 16:23:07,475 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:23:07,553 - day04 - INFO - Function day04_part1 executed in 0.0778 seconds
+2024-12-09 16:23:07,553 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:23:07,553 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:23:07,553 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:23:07,572 - day04 - INFO - Function day04_part2 executed in 0.0191 seconds
+2024-12-09 16:23:07,572 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:24:08,443 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:24:08,443 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:24:08,535 - day04 - INFO - Function day04_part1 executed in 0.0920 seconds
+2024-12-09 16:24:08,536 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:24:08,538 - day04 - INFO - Function day04_part2 executed in 0.0022 seconds
+2024-12-09 16:24:08,538 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:24:08,543 - day04 - INFO - Function day04_part2 executed in 0.0051 seconds
+2024-12-09 16:24:08,543 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:24:31,395 - day04 - INFO - Function day04_part1 executed in 0.0156 seconds
+2024-12-09 16:24:31,395 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:24:31,516 - day04 - INFO - Function day04_part1 executed in 0.1217 seconds
+2024-12-09 16:24:31,516 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:24:31,521 - day04 - INFO - Function day04_part2 executed in 0.0045 seconds
+2024-12-09 16:24:31,521 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:24:31,563 - day04 - INFO - Function day04_part2 executed in 0.0426 seconds
+2024-12-09 16:24:31,563 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:26:05,215 - day04 - INFO - Function day04_part1 executed in 0.0105 seconds
+2024-12-09 16:26:05,215 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:26:05,333 - day04 - INFO - Function day04_part1 executed in 0.1175 seconds
+2024-12-09 16:26:05,333 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:26:05,333 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:26:05,333 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:26:05,384 - day04 - INFO - Function day04_part2 executed in 0.0408 seconds
+2024-12-09 16:26:05,384 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:26:34,450 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:26:34,450 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:26:34,533 - day04 - INFO - Function day04_part1 executed in 0.0833 seconds
+2024-12-09 16:26:34,533 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:26:34,544 - day04 - INFO - Function day04_part2 executed in 0.0102 seconds
+2024-12-09 16:26:34,545 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:26:34,553 - day04 - INFO - Function day04_part2 executed in 0.0082 seconds
+2024-12-09 16:26:34,553 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:27:05,892 - day04 - INFO - Function day04_part1 executed in 0.0160 seconds
+2024-12-09 16:27:05,892 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:27:05,976 - day04 - INFO - Function day04_part1 executed in 0.0842 seconds
+2024-12-09 16:27:05,977 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:27:05,977 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:27:05,977 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:27:05,984 - day04 - INFO - Function day04_part2 executed in 0.0067 seconds
+2024-12-09 16:27:05,984 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:27:13,964 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:27:13,964 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:27:14,061 - day04 - INFO - Function day04_part1 executed in 0.0811 seconds
+2024-12-09 16:27:14,061 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:27:14,061 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:27:14,061 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:27:14,079 - day04 - INFO - Function day04_part2 executed in 0.0173 seconds
+2024-12-09 16:27:14,079 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:27:19,421 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:27:19,436 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:27:19,521 - day04 - INFO - Function day04_part1 executed in 0.0852 seconds
+2024-12-09 16:27:19,521 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:27:19,521 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:27:19,521 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:27:19,536 - day04 - INFO - Function day04_part2 executed in 0.0150 seconds
+2024-12-09 16:27:19,537 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:27:36,128 - day04 - INFO - Function day04_part1 executed in 0.0156 seconds
+2024-12-09 16:27:36,128 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:27:36,216 - day04 - INFO - Function day04_part1 executed in 0.0888 seconds
+2024-12-09 16:27:36,216 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:27:36,222 - day04 - INFO - Function day04_part2 executed in 0.0059 seconds
+2024-12-09 16:27:36,222 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:27:36,233 - day04 - INFO - Function day04_part2 executed in 0.0108 seconds
+2024-12-09 16:27:36,233 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:28:38,759 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:28:38,759 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:28:38,857 - day04 - INFO - Function day04_part1 executed in 0.0973 seconds
+2024-12-09 16:28:38,858 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:28:38,858 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:28:38,858 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:28:38,873 - day04 - INFO - Function day04_part2 executed in 0.0158 seconds
+2024-12-09 16:28:38,873 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:37:13,678 - day04 - INFO - Function day04_part1 executed in 0.0028 seconds
+2024-12-09 16:37:13,678 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:37:13,757 - day04 - INFO - Function day04_part1 executed in 0.0783 seconds
+2024-12-09 16:37:13,757 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:37:22,609 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:37:22,624 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:37:22,707 - day04 - INFO - Function day04_part1 executed in 0.0829 seconds
+2024-12-09 16:37:22,707 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:37:22,713 - day04 - INFO - Function day04_part2 executed in 0.0065 seconds
+2024-12-09 16:37:22,714 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:37:22,724 - day04 - INFO - Function day04_part2 executed in 0.0094 seconds
+2024-12-09 16:37:22,724 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:38:24,633 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:38:24,633 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:38:24,712 - day04 - INFO - Function day04_part1 executed in 0.0746 seconds
+2024-12-09 16:38:24,720 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:38:24,721 - day04 - INFO - Function day04_part2 executed in 0.0008 seconds
+2024-12-09 16:38:24,721 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:38:24,732 - day04 - INFO - Function day04_part2 executed in 0.0116 seconds
+2024-12-09 16:38:24,732 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:38:38,423 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:38:38,423 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:38:38,520 - day04 - INFO - Function day04_part1 executed in 0.0818 seconds
+2024-12-09 16:38:38,520 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:38:38,527 - day04 - INFO - Function day04_part2 executed in 0.0067 seconds
+2024-12-09 16:38:38,527 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:38:38,536 - day04 - INFO - Function day04_part2 executed in 0.0085 seconds
+2024-12-09 16:38:38,536 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:38:47,036 - day04 - INFO - Function day04_part1 executed in 0.0158 seconds
+2024-12-09 16:38:47,036 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:38:47,127 - day04 - INFO - Function day04_part1 executed in 0.0909 seconds
+2024-12-09 16:38:47,127 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:38:47,133 - day04 - INFO - Function day04_part2 executed in 0.0064 seconds
+2024-12-09 16:38:47,133 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:38:47,145 - day04 - INFO - Function day04_part2 executed in 0.0109 seconds
+2024-12-09 16:38:47,146 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:42:12,559 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:42:12,559 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 8
+2024-12-09 16:42:12,597 - day04 - INFO - Function day04_part1 executed in 0.0372 seconds
+2024-12-09 16:42:12,597 - day04 - INFO - Part 1 solution: 2468
+2024-12-09 16:42:12,597 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:42:12,597 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:42:12,725 - day04 - INFO - Function day04_part2 executed in 0.1283 seconds
+2024-12-09 16:42:12,729 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:42:33,413 - day04 - INFO - Function day04_part1 executed in 0.0088 seconds
+2024-12-09 16:42:33,413 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 8
+2024-12-09 16:42:33,447 - day04 - INFO - Function day04_part1 executed in 0.0334 seconds
+2024-12-09 16:42:33,447 - day04 - INFO - Part 1 solution: 2468
+2024-12-09 16:42:33,450 - day04 - INFO - Function day04_part2 executed in 0.0031 seconds
+2024-12-09 16:42:33,450 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:42:33,453 - day04 - INFO - Function day04_part2 executed in 0.0033 seconds
+2024-12-09 16:42:33,453 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:43:31,421 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:43:31,421 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 8
+2024-12-09 16:43:31,455 - day04 - INFO - Function day04_part1 executed in 0.0346 seconds
+2024-12-09 16:43:31,455 - day04 - INFO - Part 1 solution: 2468
+2024-12-09 16:43:31,455 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:43:31,462 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:43:31,463 - day04 - INFO - Function day04_part2 executed in 0.0006 seconds
+2024-12-09 16:43:31,466 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:43:56,179 - day04 - INFO - Function day04_part1 executed in 0.0150 seconds
+2024-12-09 16:43:56,179 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 8
+2024-12-09 16:43:56,209 - day04 - INFO - Function day04_part1 executed in 0.0296 seconds
+2024-12-09 16:43:56,209 - day04 - INFO - Part 1 solution: 2468
+2024-12-09 16:43:56,209 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:43:56,209 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:43:56,217 - day04 - INFO - Function day04_part2 executed in 0.0080 seconds
+2024-12-09 16:43:56,217 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:45:18,840 - day04 - INFO - Function day04_part1 executed in 0.0065 seconds
+2024-12-09 16:45:18,840 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 8
+2024-12-09 16:45:18,859 - day04 - INFO - Function day04_part1 executed in 0.0190 seconds
+2024-12-09 16:45:18,859 - day04 - INFO - Part 1 solution: 2468
+2024-12-09 16:45:18,859 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:45:18,859 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:45:18,865 - day04 - INFO - Function day04_part2 executed in 0.0061 seconds
+2024-12-09 16:45:18,867 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:45:59,559 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:45:59,574 - day04 - ERROR - Problem with solution to part 1! Did not get the expected answer of 18 for the provided worked example. Instead got: 13
+2024-12-09 16:45:59,655 - day04 - INFO - Function day04_part1 executed in 0.0810 seconds
+2024-12-09 16:45:59,655 - day04 - INFO - Part 1 solution: 2543
+2024-12-09 16:45:59,655 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:45:59,655 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:45:59,672 - day04 - INFO - Function day04_part2 executed in 0.0175 seconds
+2024-12-09 16:45:59,672 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:47:15,470 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:47:15,560 - day04 - INFO - Function day04_part1 executed in 0.0895 seconds
+2024-12-09 16:47:15,560 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:47:15,560 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:47:15,560 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:47:15,569 - day04 - INFO - Function day04_part2 executed in 0.0094 seconds
+2024-12-09 16:47:15,569 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:49:40,372 - day04 - INFO - Function day04_part1 executed in 0.0040 seconds
+2024-12-09 16:49:40,464 - day04 - INFO - Function day04_part1 executed in 0.0913 seconds
+2024-12-09 16:49:40,470 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:49:40,470 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:49:40,470 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:49:40,500 - day04 - INFO - Function day04_part2 executed in 0.0303 seconds
+2024-12-09 16:49:40,500 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:50:02,748 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:50:02,844 - day04 - INFO - Function day04_part1 executed in 0.0812 seconds
+2024-12-09 16:50:02,844 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:50:02,846 - day04 - INFO - Function day04_part2 executed in 0.0008 seconds
+2024-12-09 16:50:02,846 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:50:02,864 - day04 - INFO - Function day04_part2 executed in 0.0179 seconds
+2024-12-09 16:50:02,864 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:50:35,590 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:50:35,679 - day04 - INFO - Function day04_part1 executed in 0.0900 seconds
+2024-12-09 16:50:35,679 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 16:50:35,679 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 16:50:35,679 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:50:35,720 - day04 - INFO - Function day04_part2 executed in 0.0403 seconds
+2024-12-09 16:50:35,720 - day04 - INFO - Part 2 solution: 0
+2024-12-09 16:50:54,457 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:50:54,474 - day04 - INFO - Function day04_part2 executed in 0.0007 seconds
+2024-12-09 16:50:54,474 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:51:15,905 - day04 - INFO - Function day04_part1 executed in 0.0015 seconds
+2024-12-09 16:51:15,915 - day04 - INFO - Function day04_part2 executed in 0.0099 seconds
+2024-12-09 16:51:15,915 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 16:52:10,008 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 16:52:10,028 - day04 - INFO - Function day04_part2 executed in 0.0191 seconds
+2024-12-09 16:52:10,028 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 1
+2024-12-09 17:01:30,189 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:01:42,592 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:02:51,737 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:04:22,958 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:04:30,550 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:04:30,567 - day04 - INFO - Function day04_part2 executed in 0.0171 seconds
+2024-12-09 17:04:30,571 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:08:24,607 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:08:24,625 - day04 - INFO - Function day04_part2 executed in 0.0179 seconds
+2024-12-09 17:08:24,625 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:10:52,022 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:10:52,033 - day04 - INFO - Function day04_part2 executed in 0.0112 seconds
+2024-12-09 17:10:52,033 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:22:17,480 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:30:04,216 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:30:04,244 - day04 - INFO - Function day04_part2 executed in 0.0274 seconds
+2024-12-09 17:30:04,244 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:30:45,933 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:30:45,964 - day04 - INFO - Function day04_part2 executed in 0.0304 seconds
+2024-12-09 17:30:45,964 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:30:55,029 - day04 - INFO - Function day04_part1 executed in 0.0137 seconds
+2024-12-09 17:30:55,049 - day04 - INFO - Function day04_part2 executed in 0.0196 seconds
+2024-12-09 17:30:55,049 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:32:18,288 - day04 - INFO - Function day04_part1 executed in 0.0109 seconds
+2024-12-09 17:32:18,307 - day04 - INFO - Function day04_part2 executed in 0.0187 seconds
+2024-12-09 17:32:18,307 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:33:38,998 - day04 - INFO - Function day04_part1 executed in 0.0090 seconds
+2024-12-09 17:33:39,012 - day04 - INFO - Function day04_part2 executed in 0.0144 seconds
+2024-12-09 17:33:39,012 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:34:10,211 - day04 - INFO - Function day04_part1 executed in 0.0081 seconds
+2024-12-09 17:34:10,238 - day04 - INFO - Function day04_part2 executed in 0.0263 seconds
+2024-12-09 17:34:10,238 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 17:39:46,468 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:41:01,553 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:41:24,241 - day04 - INFO - Function day04_part1 executed in 0.0005 seconds
+2024-12-09 17:41:39,213 - day04 - INFO - Function day04_part1 executed in 0.0031 seconds
+2024-12-09 17:44:09,411 - day04 - INFO - Function day04_part1 executed in 0.0154 seconds
+2024-12-09 17:44:19,547 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 17:46:11,675 - day04 - INFO - Function day04_part1 executed in 0.0020 seconds
+2024-12-09 17:57:34,727 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:02:49,094 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:03:20,141 - day04 - INFO - Function day04_part1 executed in 0.0030 seconds
+2024-12-09 18:40:51,863 - day04 - INFO - Function day04_part1 executed in 0.0150 seconds
+2024-12-09 18:40:59,700 - day04 - INFO - Function day04_part1 executed in 0.0156 seconds
+2024-12-09 18:42:33,892 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:42:33,928 - day04 - INFO - Function day04_part2 executed in 0.0356 seconds
+2024-12-09 18:42:33,928 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:43:26,608 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:43:26,630 - day04 - INFO - Function day04_part2 executed in 0.0081 seconds
+2024-12-09 18:43:26,630 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:45:35,716 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:45:35,732 - day04 - INFO - Function day04_part2 executed in 0.0162 seconds
+2024-12-09 18:45:35,732 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:46:59,804 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:46:59,813 - day04 - INFO - Function day04_part2 executed in 0.0087 seconds
+2024-12-09 18:46:59,813 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:47:06,636 - day04 - INFO - Function day04_part1 executed in 0.0151 seconds
+2024-12-09 18:47:06,643 - day04 - INFO - Function day04_part2 executed in 0.0068 seconds
+2024-12-09 18:47:06,643 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:56:59,525 - day04 - INFO - Function day04_part1 executed in 0.0103 seconds
+2024-12-09 18:56:59,536 - day04 - INFO - Function day04_part2 executed in 0.0115 seconds
+2024-12-09 18:56:59,536 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:58:23,000 - day04 - INFO - Function day04_part1 executed in 0.0081 seconds
+2024-12-09 18:58:23,008 - day04 - INFO - Function day04_part2 executed in 0.0083 seconds
+2024-12-09 18:58:23,010 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 18:59:27,172 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 18:59:27,185 - day04 - INFO - Function day04_part2 executed in 0.0132 seconds
+2024-12-09 18:59:27,185 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:00:31,938 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:02:05,639 - day04 - INFO - Function day04_part1 executed in 0.0157 seconds
+2024-12-09 19:04:25,045 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:04:25,059 - day04 - INFO - Function day04_part2 executed in 0.0139 seconds
+2024-12-09 19:04:25,059 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:05:55,199 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:08:41,323 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:09:29,694 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:09:42,076 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:10:21,861 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:10:37,620 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:10:37,636 - day04 - INFO - Function day04_part2 executed in 0.0160 seconds
+2024-12-09 19:10:37,640 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:10:52,206 - day04 - INFO - Function day04_part1 executed in 0.0065 seconds
+2024-12-09 19:10:52,217 - day04 - INFO - Function day04_part2 executed in 0.0101 seconds
+2024-12-09 19:10:52,217 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:12:26,133 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:12:26,147 - day04 - INFO - Function day04_part2 executed in 0.0136 seconds
+2024-12-09 19:12:36,916 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:12:37,000 - day04 - INFO - Function day04_part1 executed in 0.0837 seconds
+2024-12-09 19:12:37,000 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:12:37,017 - day04 - INFO - Function day04_part2 executed in 0.0175 seconds
+2024-12-09 19:12:39,990 - day04 - INFO - Function day04_part2 executed in 2.9689 seconds
+2024-12-09 19:12:39,990 - day04 - INFO - Part 2 solution: 1854
+2024-12-09 19:12:44,649 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:12:44,736 - day04 - INFO - Function day04_part1 executed in 0.0876 seconds
+2024-12-09 19:12:44,736 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:12:44,736 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:12:45,256 - day04 - INFO - Function day04_part2 executed in 0.5201 seconds
+2024-12-09 19:12:45,256 - day04 - INFO - Part 2 solution: 1854
+2024-12-09 19:25:02,345 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:25:02,427 - day04 - INFO - Function day04_part1 executed in 0.0828 seconds
+2024-12-09 19:25:02,427 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:25:02,427 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:25:02,427 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:25:02,427 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:25:02,436 - day04 - INFO - Part 2 solution: 0
+2024-12-09 19:25:35,035 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:25:35,119 - day04 - INFO - Function day04_part1 executed in 0.0839 seconds
+2024-12-09 19:25:35,119 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:25:35,119 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:25:35,119 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:25:35,119 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:25:35,119 - day04 - INFO - Part 2 solution: 0
+2024-12-09 19:26:53,323 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:26:53,409 - day04 - INFO - Function day04_part1 executed in 0.0864 seconds
+2024-12-09 19:26:53,409 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:26:53,409 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:26:53,409 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:26:53,417 - day04 - INFO - Function day04_part2 executed in 0.0082 seconds
+2024-12-09 19:26:53,417 - day04 - INFO - Part 2 solution: 0
+2024-12-09 19:30:05,580 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:30:05,666 - day04 - INFO - Function day04_part1 executed in 0.0857 seconds
+2024-12-09 19:30:05,666 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:30:05,666 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:30:05,666 - day04 - ERROR - Problem with solution to part 2! Did not get the expected answer of 9 for the provided worked example. Instead got: 0
+2024-12-09 19:30:05,666 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:30:05,666 - day04 - INFO - Part 2 solution: 0
+2024-12-09 19:30:26,770 - day04 - INFO - Function day04_part1 executed in 0.0000 seconds
+2024-12-09 19:30:26,850 - day04 - INFO - Function day04_part1 executed in 0.0795 seconds
+2024-12-09 19:30:26,850 - day04 - INFO - Part 1 solution: 2557
+2024-12-09 19:30:26,850 - day04 - INFO - Function day04_part2 executed in 0.0000 seconds
+2024-12-09 19:30:27,349 - day04 - INFO - Function day04_part2 executed in 0.4992 seconds
+2024-12-09 19:30:27,349 - day04 - INFO - Part 2 solution: 1854
